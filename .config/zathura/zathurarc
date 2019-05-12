@@ -7,7 +7,7 @@ map R rotate
 map i recolor
 map K zoom in
 map J zoom out
-map u scroll half-up
-map d scroll half-down
-map U navigate previous
-map D navigate next
+map U scroll half-up
+map D scroll half-down
+map u navigate previous
+map d navigate next
