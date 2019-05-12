@@ -1,0 +1,4 @@
+Xft.dpi: 144
+URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11
+URxvt.letterSpace: -1
+URxvt.scrollBar: False
