@@ -3,7 +3,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Definitions
-set $term --no-startup-id st
+set $term --no-startup-id urxvt
+set $BROWSER --no-startup-id qutebrowser
 set $mod Mod4
 set $shutdown sudo -A shutdown -h now
 
@@ -12,17 +13,10 @@ exec --no-startup-id redshift
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro 10
+font pango:Inconsolata 10
 
 # thin borders
 hide_edge_borders both
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -63,12 +57,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+g split h
-
-# split in vertical orientation
-bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -123,14 +111,12 @@ bindsym $mod+Shift+p exec "i3-nagbar -t warning -m 'Hibernate system?' -B 'Yes, 
 # lock
 bindsym $mod+x exec --no-startup-id i3lock -e -f -c 1d2021
 bindsym $mod+Shift+x exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
-#bindsym $mod+Shift+x exec i3lock-fancy -t "stay oot ma shit"
-# 475263
 
 # Resize shortcuts
-bindsym $mod+Shift+y exec resize grow width 10 px or 10 ppt
-bindsym $mod+Shift+u exec resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i exec resize shrink width 10 px 10 ppt
-bindsym $mod+Shift+o exec resize shrink height 10 px 10 ppt
+bindsym $mod+Shift+y exec i3resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+u exec i3resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i exec i3resize shrink width 10 px 10 ppt
+bindsym $mod+Shift+o exec i3resize shrink height 10 px 10 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -158,6 +144,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#original bg-color 2f343f
 set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -207,7 +194,8 @@ bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill 
 bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
 # mute
-bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+# bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 #bindsym XF86AudioPlay exec playerctl play
 #bindsym XF86AudioPause exec playerctl pause
@@ -238,17 +226,17 @@ exec xrandr --dpi 144
 exec_always --no-startup-id exec bash $HOME/.fehbg
 
 # Set colorscheme
-exec_always wal -i ~/Pictures/by_billboards_2560.jpg
+exec_always wal -i ~/Pictures/by_on_ramp_2560.jpg
 
 # Enable touchpad while typing
-exec xinput set-prop 12 298 0
+exec_always xinput set-prop 12 296 0
 
 # Enable natural scrolling
-exec xinput set-prop 12 296 1
+exec_always xinput set-prop 12 294 1
 
 # Set color border
 # class                 border  backgr. text    indicator child_border
-client.focused          #da6ff2 #285577 #ffffff #2e9ef4   #285577
+client.focused          #51a84a #285577 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -264,4 +252,4 @@ smart_borders on
 
 bindsym $mod+n exec $term -e ranger
 bindsym $mod+t split toggle
-bindsym $mod+Shift+t gaps inner current set 15; gapts outer current set 15
+bindsym $mod+Shift+v exec --no-startup-id tutorialvids

@@ -1,4 +1,5 @@
 set number
+set relativenumber
 set linespace=3
 execute pathogen#infect()
 syntax on

@@ -22,7 +22,7 @@ order += "disk /"
 #order += "disk /home"
 #order += "run_watch DHCP"
 #order += "ipv6"
-order += "run_watch VPN"
+#order += "run_watch VPN"
 order += "wireless wlp4s0"
 #order += "ethernet enp5s0"
 order += "battery 0"
@@ -103,8 +103,8 @@ disk "/" {
 #}
 
 volume master {
-    format = "%volume  "
-    format_muted = " "
+    format = "%volume  "
+    format_muted = " "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
