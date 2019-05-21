@@ -1,4 +1,26 @@
-Xft.dpi: 144
-URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11
-URxvt.letterSpace: -1
-URxvt.scrollBar: False
+Xft.dpi: 			144
+URxvt.font:			xft:Inconsolata\ for\ Powerline:size=13
+URxvt.letterSpace:		0
+URxvt.scrollBar: 		False
+
+! Load perl extensions
+URxvt.perl-ext-common:		clipboard,default,matcher,resize-font
+
+! Clickable URLs
+URxvt.url-launcher: 		/usr/bin/xdg-open
+URxvt.matcher.button: 		1
+
+! Yankable URLs
+URxvt.perl-ext:			default,url-select
+URxvt.keysym.M-u: 		perl:url-select:select_next
+URxvt.url-select.launcher:	/usr/bin/xdg-open
+URxvt.url-select.underline:	true
+
+! Clipboard autocopy
+URxvt.clipboard.autocopy: 	true
+URxvt.keysm.M-c:		perl:clipboard:copy
+URxvt.keysm.M-v:		perl:clipboard:paste
+
+! Change font size on the fly
+URxvt.keysym.M-J:		resize-font:smaller
+URxvt.keysym.M-K:		resize-font:bigger
