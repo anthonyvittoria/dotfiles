@@ -1,5 +1,5 @@
-Xft.dpi: 			144
-URxvt.font:			xft:Inconsolata\ for\ Powerline:size=13
+Xft.dpi: 			192
+URxvt.font:			xft:Inconsolata\ for\ Powerline:size=14
 URxvt.letterSpace:		0
 URxvt.scrollBar: 		False
 
